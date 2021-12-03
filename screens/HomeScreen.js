@@ -35,35 +35,36 @@ export function HomeScreen({ route, navigation }) {
   }
 
   return (
-  <ScrollView>
-    <View style={styles.screen}>
-      <Button
-        title="Go to the Settings screen!"
-        onPress={handleSettingsPress}
-      />
-      <View>
-        {isLoading ? (
-          <ActivityIndicator />
-        ) : (
-          <FlatList
-            data={data}
-            keyExtractor={({ id }, index) => id}
-            renderItem={({ item }) => (
-              <View>
-                <Image
-                   style={styles.tinyLogo}
-                   source={{uri: `${item.image}`
-                  }}
-                />
-                <Text>
-                  {item.name} : {item.price} 
-                </Text>
-              </View>
-            )}
-          />
-        )}
+    <ScrollView>
+      <View style={styles.screen}>
+        <Button
+          title="Go to the Settings screen!"
+          onPress={handleSettingsPress}
+        />
+        <View>
+          {isLoading ? (
+            <ActivityIndicator />
+          ) : (
+            <FlatList
+              data={data}
+              keyExtractor={({ id }, index) => id}
+              renderItem={({ item }) => (
+                <View>
+                  <Image
+                    style={styles.tinyLogo}
+                    source={{
+                      uri: `${item.image}`
+                    }}
+                  />
+                  <Text>
+                    {item.name} : {item.price}
+                  </Text>
+                </View>
+              )}
+            />
+          )}
+        </View>
       </View>
-    </View>
     </ScrollView>
   );
 }
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     //justifyContent: "center",
   },
   tinyLogo: {
-    width:50,
-    height:50,
+    width: 50,
+    height: 50,
   }
 });
